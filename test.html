@@ -1,0 +1,1919 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Estado Cuenta</title>
+	<style>
+		* {
+			box-sizing: border-box;
+			font-family: "Roboto", helvetica, arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+
+        body {
+			padding-bottom: 50px;
+		}
+		@media screen {
+			div.divFooter {
+				bottom: 5px;
+				margin: 0;
+  				width: 100%;
+                background-color: gray; 
+                color: #ffffff;
+                padding: 10px;
+                text-align: center;
+                display: block;
+			}
+		}
+		
+		@media print {
+			div.divFooter {
+				bottom: 5px;
+				margin: 0;
+  				width: 100%;
+                background-color: gray; 
+                color: #ffffff;
+                padding: 10px;
+                text-align: center;
+                display: block;
+			}
+		}
+		
+		.container {
+			/*width: 900px;*/
+			padding: 0px 18px;
+			margin: 0 auto;
+		}
+
+		header {
+			margin-top: 1px;
+			margin-bottom: 10px;
+		}
+
+		.logo {
+			align-self: flex-start;
+			padding: 0 18px;
+		}
+
+		.header-content {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.header-text {
+			width: 560px;
+		}
+
+		.date {
+			font-style: italic;
+			color: #666;
+			text-align: right;
+			margin-top: -40px;
+			font-weight: 500;
+			padding: 0 18px;
+		}
+
+		.title {
+			font-weight: 600;
+			font-size: 22px;
+			color: #34449c;
+		}
+
+		.description {
+			font-size: 10px;
+			margin: 0;
+		}
+
+		table {
+			border-collapse: collapse;
+			margin-bottom: 10px;
+			width: 100%;
+		}
+
+		table.rows {
+			font-size: 14px;
+		}
+
+		tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+		
+		.total-table tr:nth-child(even) {
+			background-color: #ffffff;
+		}
+
+		th {
+			border-bottom: 1px solid black;
+		}
+
+		th {
+			background-color: #34449c;
+			color: white;
+		}
+
+		th {
+			padding: 3px 8px;
+		}
+
+		td {
+			padding: 1px 4px;
+		}
+
+		.total {
+			background: #f2f2f2;
+			padding: 8px;
+			display: flex;
+			justify-content: flex-end;
+			align-items: baseline;
+		}
+
+		.total h3 {
+			font-size: 19px;
+			font-weight: 600;
+			color: #34449c;
+			margin-right: 60px;
+		}
+
+		.SubTotal {
+			margin-right: 33px;
+		}
+
+		.IVA {
+			margin-right: 27px;
+		}
+
+		.Total {
+			margin-right: 4px;
+		}
+
+		.Moneda {
+			margin-right: 48px;
+		}
+
+		tr.disabled td {
+			background: #aaa;
+		}
+	</style>
+</head>
+
+<body>
+	<div>
+		<header>
+			<table>
+				<tr>
+					<td style="width:30%; text-align: center; visibility:visible">
+						<p style="padding: 0 18px;">Test S.R.L.</p>
+						<p style="padding: 0 18px;"></p>
+                    </td>
+					<td style="text-align:center">
+						<div style="text-align:center;">
+							<p class="title" style="">Estado de Cuenta</p>
+							<p style="margin-top:5px;"><strong>CLIENTE N° 1623<BR>TEST SAS</strong></p>
+							<p style="display: none;"></p>
+							<p>TEST</p>
+							<p>Ciudad</p>
+						</div>
+					</td>
+					<td style="text-align:right;width:10%;">
+						<p class="date" style="">08/06/2024</p>
+					</td>
+				</tr>
+			</table>
+		</header>
+		<main>
+			<div class="container">
+				<table class="maintbl rows">
+					<thead>
+						<tr>
+							<th style="display: none; text-align: left;">Sucursal</th>
+							<th style="text-align: center;">Fecha</th>
+							<th style="text-align: left;">Detalle</th>
+							<th style="text-align: left; display: none">Retiró</th>
+							<th style="text-align: right;">Débitos</th>
+							<th style="text-align: right;">Créditos</th>
+							<th style="text-align: right;">Saldos</th>
+
+							<th style="text-align: center; display: none">Venc.</th>
+							<th style="text-align: center; display: none">Importe</th>
+							<th style="text-align: right; display: none;">Saldos</th>
+						</tr>
+					</thead>
+					<tbody>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">31/03/2024</td>
+							<td style="text-align: left; color: ">Factura Crédito n° A2</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">415.528,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">415.528,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">23/04/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260007</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">9.500,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">425.028,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">23/04/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260015</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">12.270,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">437.298,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">24/04/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260032</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">3.270,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">440.568,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">24/04/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260038</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">1.000,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">441.568,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">25/04/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260040</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">633,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">442.201,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">25/04/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260049</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">1.630,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">443.831,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">26/04/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260060</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">89.088,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">532.919,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">27/04/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260068</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">4.000,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">536.919,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">27/04/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260073</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">2.200,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">539.119,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">28/04/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260079</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">3.750,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">542.869,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">29/04/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260097</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">2.100,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">544.969,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">29/04/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260103</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">15.570,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">560.539,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">30/04/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260111</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">54.890,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">615.429,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">02/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260140</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">7.015,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">622.444,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">02/05/2024</td>
+							<td style="text-align: left; color: ">N.C. de eFactura Crédito n° A25002</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">12.494,00</td>
+							<td style="text-align: right; color: ">609.950,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">02/05/2024</td>
+							<td style="text-align: left; color: ">Recibo n° A38</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">602.935,00</td>
+							<td style="text-align: right; color: ">7.015,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">03/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260165</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">3.755,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">10.770,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">03/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260167</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">95.662,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">106.432,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">03/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260182</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">1.000,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">107.432,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">03/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260186</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">3.400,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">110.832,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">04/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260198</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">53.920,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">164.752,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">04/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260207</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">3.230,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">167.982,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">05/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260216</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">86.590,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">254.572,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">06/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260230</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">2.800,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">257.372,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">06/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260239</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">1.000,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">258.372,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">07/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260251</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">3.800,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">262.172,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">08/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260261</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">420,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">262.592,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">08/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260262</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">1.980,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">264.572,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">08/05/2024</td>
+							<td style="text-align: left; color: ">N.C. de eFactura Crédito n° A25006</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">7.506,00</td>
+							<td style="text-align: right; color: ">257.066,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">10/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260300</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">32.352,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">289.418,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">10/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260302</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">502,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">289.920,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">10/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260303</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">16.251,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">306.171,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">10/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260304</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">89,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">306.260,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">10/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260308</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">1.295,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">307.555,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">10/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260317</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">2.350,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">309.905,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">10/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260319</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">5.530,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">315.435,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">11/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260327</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">53.920,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">369.355,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">11/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260339</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">1.000,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">370.355,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">11/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260342</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">10.380,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">380.735,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">13/05/2024</td>
+							<td style="text-align: left; color: ">Recibo n° A70</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">257.066,00</td>
+							<td style="text-align: right; color: ">123.669,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">13/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260366</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">43.136,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">166.805,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">13/05/2024</td>
+							<td style="text-align: left; color: ">Recibo n° A71</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">760.000,00</td>
+							<td style="text-align: right; color: ">-593.195,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">14/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260377</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">1.360,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">-591.835,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">14/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260389</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">3.800,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">-588.035,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">14/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260397</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">280,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">-587.755,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">15/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260403</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">65.729,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">-522.026,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">15/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260405</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">723,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">-521.303,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">15/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260409</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">5.600,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">-515.703,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">15/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260419</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">11.720,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">-503.983,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">16/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260422</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">102.448,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">-401.535,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">16/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260430</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">99.024,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">-302.511,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">16/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260436</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">185,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">-302.326,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">16/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260449</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">21.697,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">-280.629,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">17/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260451</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">1.000,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">-279.629,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">17/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260453</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">104.713,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">-174.916,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">17/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260454</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">110,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">-174.806,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">17/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260457</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">3.200,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">-171.606,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">17/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260473</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">3.010,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">-168.596,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">18/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260476</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">102.448,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">-66.148,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">18/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260483</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">1.100,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">-65.048,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">18/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260484</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">5.550,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">-59.498,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">18/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260492</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">12.837,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">-46.661,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">19/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260498</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">80.880,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">34.219,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">19/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260499</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">19.080,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">53.299,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">20/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260511</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">1.661,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">54.960,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">20/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260514</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">80.880,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">135.840,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">20/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260517</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">10.380,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">146.220,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">20/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260528</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">2.290,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">148.510,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">20/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260531</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">17.051,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">165.561,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">21/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260540</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">735,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">166.296,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">21/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260541</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">5.910,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">172.206,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">21/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260542</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">13.498,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">185.704,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">21/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260544</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">53.920,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">239.624,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">21/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260563</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">3.998,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">243.622,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">22/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260573</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">22.580,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">266.202,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">22/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260574</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">16.975,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">283.177,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">22/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260579</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">80.880,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">364.057,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">22/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260581</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">1.280,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">365.337,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">22/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260585</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">3.600,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">368.937,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">22/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260596</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">3.815,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">372.752,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">23/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260602</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">1.000,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">373.752,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">23/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260605</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">2.800,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">376.552,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">24/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260626</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">950,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">377.502,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">24/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260629</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">7.460,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">384.962,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">24/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260630</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">20.530,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">405.492,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">24/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260639</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">15.567,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">421.059,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">24/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260645</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">14.213,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">435.272,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">25/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260649</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">37.744,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">473.016,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">25/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260650</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">17.820,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">490.836,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">25/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260654</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">22.338,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">513.174,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">25/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260663</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">5.190,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">518.364,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">25/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260664</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">3.300,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">521.664,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">25/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260672</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">17.250,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">538.914,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">26/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260674</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">53.920,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">592.834,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">26/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260687</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">21.240,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">614.074,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">27/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260694</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">1.020,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">615.094,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">27/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260699</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">1.800,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">616.894,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">27/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260701</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">68.270,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">685.164,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">27/05/2024</td>
+							<td style="text-align: left; color: ">N.C. de eFactura Crédito n° A25012</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">32.470,00</td>
+							<td style="text-align: right; color: ">652.694,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">27/05/2024</td>
+							<td style="text-align: left; color: ">Recibo n° A100</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">336.467,00</td>
+							<td style="text-align: right; color: ">316.227,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">27/05/2024</td>
+							<td style="text-align: left; color: ">eFactura Crédito n° A260711</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: ">1.000,00</td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">317.227,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: red">Casa Central</td>
+							<td style="text-align: center; color: red">29/05/2024</td>
+							<td style="text-align: left; color: red">eFactura Crédito n° A260734</td>
+							<td style="text-align: left; display: none; %color: red"></td>
+							<td style="text-align: right; color: red">3.530,00</td>
+							<td style="text-align: right; color: red"></td>
+							<td style="text-align: right; color: red">320.757,00</td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: right; display: none; color: red"></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: red">Casa Central</td>
+							<td style="text-align: center; color: red">29/05/2024</td>
+							<td style="text-align: left; color: red">eFactura Crédito n° A260747</td>
+							<td style="text-align: left; display: none; %color: red"></td>
+							<td style="text-align: right; color: red">1.750,00</td>
+							<td style="text-align: right; color: red"></td>
+							<td style="text-align: right; color: red">322.507,00</td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: right; display: none; color: red"></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">30/05/2024</td>
+							<td style="text-align: left; color: ">N.C. de eFactura Crédito n° A25014</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">8.513,00</td>
+							<td style="text-align: right; color: ">313.994,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: ">Casa Central</td>
+							<td style="text-align: center; color: ">30/05/2024</td>
+							<td style="text-align: left; color: ">Recibo n° A116</td>
+							<td style="text-align: left; display: none; %color: "></td>
+							<td style="text-align: right; color: "></td>
+							<td style="text-align: right; color: ">308.714,00</td>
+							<td style="text-align: right; color: ">5.280,00</td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: center; display: none; color: "></td>
+							<td style="text-align: right; display: none; color: "></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: red">Casa Central</td>
+							<td style="text-align: center; color: red">31/05/2024</td>
+							<td style="text-align: left; color: red">eFactura Crédito n° A260778</td>
+							<td style="text-align: left; display: none; %color: red"></td>
+							<td style="text-align: right; color: red">8.190,00</td>
+							<td style="text-align: right; color: red"></td>
+							<td style="text-align: right; color: red">13.470,00</td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: right; display: none; color: red"></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: red">Casa Central</td>
+							<td style="text-align: center; color: red">31/05/2024</td>
+							<td style="text-align: left; color: red">eFactura Crédito n° A260779</td>
+							<td style="text-align: left; display: none; %color: red"></td>
+							<td style="text-align: right; color: red">4.080,00</td>
+							<td style="text-align: right; color: red"></td>
+							<td style="text-align: right; color: red">17.550,00</td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: right; display: none; color: red"></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: red">Casa Central</td>
+							<td style="text-align: center; color: red">31/05/2024</td>
+							<td style="text-align: left; color: red">eFactura Crédito n° A260787</td>
+							<td style="text-align: left; display: none; %color: red"></td>
+							<td style="text-align: right; color: red">10.300,00</td>
+							<td style="text-align: right; color: red"></td>
+							<td style="text-align: right; color: red">27.850,00</td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: right; display: none; color: red"></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: red">Casa Central</td>
+							<td style="text-align: center; color: red">31/05/2024</td>
+							<td style="text-align: left; color: red">eFactura Crédito n° A260790</td>
+							<td style="text-align: left; display: none; %color: red"></td>
+							<td style="text-align: right; color: red">1.700,00</td>
+							<td style="text-align: right; color: red"></td>
+							<td style="text-align: right; color: red">29.550,00</td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: right; display: none; color: red"></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: red">Casa Central</td>
+							<td style="text-align: center; color: red">31/05/2024</td>
+							<td style="text-align: left; color: red">eFactura Crédito n° A260797</td>
+							<td style="text-align: left; display: none; %color: red"></td>
+							<td style="text-align: right; color: red">15.691,00</td>
+							<td style="text-align: right; color: red"></td>
+							<td style="text-align: right; color: red">45.241,00</td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: right; display: none; color: red"></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: red">Casa Central</td>
+							<td style="text-align: center; color: red">01/06/2024</td>
+							<td style="text-align: left; color: red">eFactura Crédito n° A260807</td>
+							<td style="text-align: left; display: none; %color: red"></td>
+							<td style="text-align: right; color: red">2.900,00</td>
+							<td style="text-align: right; color: red"></td>
+							<td style="text-align: right; color: red">48.141,00</td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: right; display: none; color: red"></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: red">Casa Central</td>
+							<td style="text-align: center; color: red">01/06/2024</td>
+							<td style="text-align: left; color: red">eFactura Crédito n° A260809</td>
+							<td style="text-align: left; display: none; %color: red"></td>
+							<td style="text-align: right; color: red">1.233,00</td>
+							<td style="text-align: right; color: red"></td>
+							<td style="text-align: right; color: red">49.374,00</td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: right; display: none; color: red"></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: red">Casa Central</td>
+							<td style="text-align: center; color: red">01/06/2024</td>
+							<td style="text-align: left; color: red">eFactura Crédito n° A260819</td>
+							<td style="text-align: left; display: none; %color: red"></td>
+							<td style="text-align: right; color: red">1.000,00</td>
+							<td style="text-align: right; color: red"></td>
+							<td style="text-align: right; color: red">50.374,00</td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: right; display: none; color: red"></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: red">Casa Central</td>
+							<td style="text-align: center; color: red">02/06/2024</td>
+							<td style="text-align: left; color: red">eFactura Crédito n° A260820</td>
+							<td style="text-align: left; display: none; %color: red"></td>
+							<td style="text-align: right; color: red">5.190,00</td>
+							<td style="text-align: right; color: red"></td>
+							<td style="text-align: right; color: red">55.564,00</td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: right; display: none; color: red"></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: red">Casa Central</td>
+							<td style="text-align: center; color: red">03/06/2024</td>
+							<td style="text-align: left; color: red">eFactura Crédito n° A260830</td>
+							<td style="text-align: left; display: none; %color: red"></td>
+							<td style="text-align: right; color: red">89.114,00</td>
+							<td style="text-align: right; color: red"></td>
+							<td style="text-align: right; color: red">144.678,00</td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: right; display: none; color: red"></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: red">Casa Central</td>
+							<td style="text-align: center; color: red">03/06/2024</td>
+							<td style="text-align: left; color: red">eFactura Crédito n° A260834</td>
+							<td style="text-align: left; display: none; %color: red"></td>
+							<td style="text-align: right; color: red">1.470,00</td>
+							<td style="text-align: right; color: red"></td>
+							<td style="text-align: right; color: red">146.148,00</td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: right; display: none; color: red"></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: red">Casa Central</td>
+							<td style="text-align: center; color: red">03/06/2024</td>
+							<td style="text-align: left; color: red">eFactura Crédito n° A260837</td>
+							<td style="text-align: left; display: none; %color: red"></td>
+							<td style="text-align: right; color: red">13.734,00</td>
+							<td style="text-align: right; color: red"></td>
+							<td style="text-align: right; color: red">159.882,00</td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: right; display: none; color: red"></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: red">Casa Central</td>
+							<td style="text-align: center; color: red">03/06/2024</td>
+							<td style="text-align: left; color: red">eFactura Crédito n° A260838</td>
+							<td style="text-align: left; display: none; %color: red"></td>
+							<td style="text-align: right; color: red">2.890,00</td>
+							<td style="text-align: right; color: red"></td>
+							<td style="text-align: right; color: red">162.772,00</td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: right; display: none; color: red"></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: red">Casa Central</td>
+							<td style="text-align: center; color: red">04/06/2024</td>
+							<td style="text-align: left; color: red">eFactura Crédito n° A260852</td>
+							<td style="text-align: left; display: none; %color: red"></td>
+							<td style="text-align: right; color: red">131.050,00</td>
+							<td style="text-align: right; color: red"></td>
+							<td style="text-align: right; color: red">293.822,00</td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: right; display: none; color: red"></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: red">Casa Central</td>
+							<td style="text-align: center; color: red">04/06/2024</td>
+							<td style="text-align: left; color: red">eFactura Crédito n° A260856</td>
+							<td style="text-align: left; display: none; %color: red"></td>
+							<td style="text-align: right; color: red">1.600,00</td>
+							<td style="text-align: right; color: red"></td>
+							<td style="text-align: right; color: red">295.422,00</td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: right; display: none; color: red"></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: red">Casa Central</td>
+							<td style="text-align: center; color: red">04/06/2024</td>
+							<td style="text-align: left; color: red">eFactura Crédito n° A260866</td>
+							<td style="text-align: left; display: none; %color: red"></td>
+							<td style="text-align: right; color: red">5.600,00</td>
+							<td style="text-align: right; color: red"></td>
+							<td style="text-align: right; color: red">301.022,00</td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: right; display: none; color: red"></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: red">Casa Central</td>
+							<td style="text-align: center; color: red">05/06/2024</td>
+							<td style="text-align: left; color: red">eFactura Crédito n° A260881</td>
+							<td style="text-align: left; display: none; %color: red"></td>
+							<td style="text-align: right; color: red">2.220,00</td>
+							<td style="text-align: right; color: red"></td>
+							<td style="text-align: right; color: red">303.242,00</td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: right; display: none; color: red"></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: red">Casa Central</td>
+							<td style="text-align: center; color: red">05/06/2024</td>
+							<td style="text-align: left; color: red">eFactura Crédito n° A260883</td>
+							<td style="text-align: left; display: none; %color: red"></td>
+							<td style="text-align: right; color: red">20.376,00</td>
+							<td style="text-align: right; color: red"></td>
+							<td style="text-align: right; color: red">323.618,00</td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: right; display: none; color: red"></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: red">Casa Central</td>
+							<td style="text-align: center; color: red">06/06/2024</td>
+							<td style="text-align: left; color: red">eFactura Crédito n° A260923</td>
+							<td style="text-align: left; display: none; %color: red"></td>
+							<td style="text-align: right; color: red">2.600,00</td>
+							<td style="text-align: right; color: red"></td>
+							<td style="text-align: right; color: red">326.218,00</td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: right; display: none; color: red"></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: red">Casa Central</td>
+							<td style="text-align: center; color: red">08/06/2024</td>
+							<td style="text-align: left; color: red">eFactura Crédito n° A260952</td>
+							<td style="text-align: left; display: none; %color: red"></td>
+							<td style="text-align: right; color: red">31.452,00</td>
+							<td style="text-align: right; color: red"></td>
+							<td style="text-align: right; color: red">357.670,00</td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: right; display: none; color: red"></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: red">Casa Central</td>
+							<td style="text-align: center; color: red">08/06/2024</td>
+							<td style="text-align: left; color: red">eFactura Crédito n° A260953</td>
+							<td style="text-align: left; display: none; %color: red"></td>
+							<td style="text-align: right; color: red">21.300,00</td>
+							<td style="text-align: right; color: red"></td>
+							<td style="text-align: right; color: red">378.970,00</td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: right; display: none; color: red"></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: red">Casa Central</td>
+							<td style="text-align: center; color: red">08/06/2024</td>
+							<td style="text-align: left; color: red">eFactura Crédito n° A260954</td>
+							<td style="text-align: left; display: none; %color: red"></td>
+							<td style="text-align: right; color: red">3.500,00</td>
+							<td style="text-align: right; color: red"></td>
+							<td style="text-align: right; color: red">382.470,00</td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: right; display: none; color: red"></td>
+						</tr>
+						
+						<tr class="%anulado%">
+							<td style="display: none; text-align: left; color: red">Casa Central</td>
+							<td style="text-align: center; color: red">08/06/2024</td>
+							<td style="text-align: left; color: red">eFactura Crédito n° A260964</td>
+							<td style="text-align: left; display: none; %color: red"></td>
+							<td style="text-align: right; color: red">1.000,00</td>
+							<td style="text-align: right; color: red"></td>
+							<td style="text-align: right; color: red">383.470,00</td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: center; display: none; color: red"></td>
+							<td style="text-align: right; display: none; color: red"></td>
+						</tr>
+						
+					</tbody>
+				</table>
+
+				<table class="rows total-table" style="margin-left: auto; width:30%;">
+					<tr>
+						<td style="text-align:right;">
+							<p><strong>Total $:</strong></p>
+						</td>
+						<td style="text-align: right;">
+							<p><strong>383.470,00</strong></p>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align:right; display: none">
+							<p><strong>Total $:</strong></p>
+						</td>
+						<td style="text-align: right; display: none">
+							<p><strong></strong></p>
+						</td>
+					</tr>
+				</table>
+							
+			</div>			
+	
+		</main>
+
+	</div>
+	
+	<div class="divFooter"> 
+		Test S.R.L.&ensp;|&ensp;Marcos Gilomen 1867&ensp;|&ensp;Tel. +5845548271&ensp;|&ensp;Mail: test@gmail.com	
+	</div>
+	
+
+</body>
+
+</html>
